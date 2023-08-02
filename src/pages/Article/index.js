@@ -255,7 +255,6 @@ const Article = () => {
                         </div>
                         :
                         Object.values(dataArticle).map((data, index) => {
-                            console.log(data)
                             return (
                                 <div className='col-span-3' key={index}>
                                     <div className='relative'>
