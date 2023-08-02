@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { Admin, Coupon, Dashboard, Login, Package, Template, Transaction } from "./pages";
+import { Toaster } from "react-hot-toast";
+import Article from "./pages/Article";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+            />
+            <Routes>
+                {/* Auth */}
+                <Route name='Login' path="/" element={<Login/>}/>
+                <Route path="/admin" element={<Template/>}>
+                    <Route index element={<Admin/>}/>
+                </Route>
+                <Route path="/dashboard" element={<Template/>}>
+                    <Route index element={<Dashboard/>}/>
+                </Route>
+                <Route path="/package" element={<Template/>}>
+                    <Route index element={<Package/>}/>
+                </Route>
+                <Route path="/coupon" element={<Template/>}>
+                    <Route index element={<Coupon/>}/>
+                </Route>
+                <Route path="/transaction" element={<Template/>}>
+                    <Route index element={<Transaction/>}/>
+                </Route>
+                <Route path="/article" element={<Template/>}>
+                    <Route index element={<Article/>}/>
+                </Route>
+            </Routes>
+        </div>
+    )
 }
 
-export default App;
+export default App
