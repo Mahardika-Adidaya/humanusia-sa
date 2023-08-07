@@ -230,6 +230,27 @@ class Api {
             }
         })
     }
+
+    // Transaction
+
+    static GetTransaction(token) {
+        let path = `superadmin/get-transaction`;
+        return request(`${this.urlAPI()}${path}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+            }
+        })
+    }
+    static GetInvoice(token, id) {
+        let path = `superadmin/get-invoice/${id}`;
+        return request(`${this.urlAPI()}${path}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+            }
+        })
+    }
     
 }
 export default Api;

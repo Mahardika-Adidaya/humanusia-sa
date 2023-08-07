@@ -78,6 +78,7 @@ const Package = () => {
             setRefresh(true)
             toast.success('Success to send data package!')
         } catch (error) {
+            console.log(error)
             toast.error('Failed to send data package!')
         }
     }
@@ -113,6 +114,7 @@ const Package = () => {
             setRefresh(true)
             toast.success('Success to update data package')
         } catch (error) {
+            console.log(error)
             toast.error('Failed to update data package!')
         }
     }
