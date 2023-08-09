@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Admin, Coupon, Dashboard, Login, Package, Template, Transaction } from "./pages";
 import { Toaster } from "react-hot-toast";
 import Article from "./pages/Article";
+import ArticleDetail from "./pages/ArticleDetail";
 
 function App() {
     return (
@@ -30,6 +31,9 @@ function App() {
                 </Route>
                 <Route path="/article" element={<Template/>}>
                     <Route index element={<Article/>}/>
+                </Route>
+                <Route path="/article-detail" element={<Template/>}>
+                    <Route index element={<ArticleDetail/>}/>
                 </Route>
             </Routes>
         </div>

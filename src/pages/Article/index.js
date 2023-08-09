@@ -4,7 +4,7 @@ import { Blog1 } from '../../assets'
 import { AiOutlineCalendar, AiOutlineUser } from 'react-icons/ai'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { TbEdit } from 'react-icons/tb'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Editor } from '@tinymce/tinymce-react'
 import { BiTrashAlt } from 'react-icons/bi'
 import Api from '../../Api'
@@ -14,7 +14,7 @@ import moment from 'moment/moment'
 import { handleLinkArticle } from '../../utils'
 
 const Article = () => {
-
+    const navigate = useNavigate()
     const editorRef = useRef(null);
 
     const limit = 3
@@ -282,10 +282,10 @@ const Article = () => {
                                             </div>
                                         </div>
                                         <div className='text-sm text-[#737373] line-clamp-2' dangerouslySetInnerHTML={{ __html: data.description }}></div>
-                                        <Link to={'/detail-blog/Humanusia-sebagai-Rekomendasi-Sistem-Manajemen-HR-dengan-Harga-Terjangkau'} className='flex items-center gap-[15px]'>
+                                        <button onClick={ () => navigate('/article-detail', {state: {articleId: data.id}})} className='flex items-center gap-[15px]'>
                                             <h1 className='text-[#780000] text-sm font-medium'>Lihat Detail</h1>
                                             <HiArrowNarrowRight className='text-[#780000]'/>
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
                             )
